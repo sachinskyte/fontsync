@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Pair - Typography Pairing Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.google.com/specimen/Hubot+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Initial fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Archivo+Black&family=Bebas+Neue&family=Righteous&family=Anton&family=Fjalla+One&family=Staatliches&family=Alfa+Slab+One&family=Comfortaa&family=Josefin+Sans&family=Paytone+One&family=Secular+One&family=Shrikhand&family=Ultra&family=Playfair+Display&family=Lora&family=Merriweather&family=Source+Serif+Pro&family=Libre+Baskerville&family=Crimson+Text&family=EB+Garamond&family=Cormorant+Garamond&family=Bitter&family=Spectral&family=Noto+Serif&family=Cardo&family=IBM+Plex+Serif&family=Hubot+Sans&family=Inter&family=Roboto&family=Montserrat&family=Poppins&family=Open+Sans&family=Raleway&family=Work+Sans&family=Nunito&family=Quicksand&family=DM+Sans&family=Manrope&family=Karla&family=Outfit&family=Rubik&family=Oxygen&family=Exo&family=Mulish&family=Heebo&family=Asap&family=Barlow&family=Catamaran&family=Saira&family=Titillium+Web&family=Yantramanav&family=Hind&family=Monda&family=Chivo&family=Varela+Round&family=Questrial&family=Exo+2&family=Urbanist&family=Raleway+Dots&family=Red+Hat+Display&family=Zilla+Slab&family=Tinos&family=Arvo&family=Alegreya&family=Neuton&family=PT+Serif&family=Prata&family=Gloock&family=Alice&family=Lustria&family=Rosarivo&family=Cormorant+SC&family=Neucha&family=Tienne&family=Noto+Serif+Display&family=Libre+Caslon+Text&family=Fauna+One&family=Sorts+Mill+Goudy&family=Abhaya+Libre&family=Noto+Serif+Tamil&family=Bangers&family=Black+Ops+One&family=Fredoka&family=Monoton&family=Audiowide&family=Coiny&family=Boogaloo&family=Faster+One&family=Megrim&family=Londrina+Solid&family=Amatic+SC&family=Chewy&family=Sigmar+One&family=Luckiest+Guy&family=Fascinate&family=Fredericka+the+Great&family=Rye&family=Nosifer&family=Unica+One&family=Rubik+Moonrocks&family=Pacifico&family=Caveat&family=Dancing+Script&family=Satisfy&family=Indie+Flower&family=Just+Another+Hand&family=Shadows+Into+Light&family=Patrick+Hand&family=Great+Vibes&family=Courgette&family=Kalam&family=Yellowtail&family=Reenie+Beanie&family=Gloria+Hallelujah&family=Coming+Soon&family=Architects+Daughter&family=La+Belle+Aurore&family=Bad+Script&family=Zeyada&family=Sacramento&family=JetBrains+Mono&family=Fira+Code&family=Space+Mono&family=Share+Tech+Mono&family=Inconsolata&family=Ubuntu+Mono&family=Cousine&family=PT+Mono&family=Roboto+Mono&family=Source+Code+Pro&family=Cutive+Mono&family=IBM+Plex+Mono&family=VT323&family=Overpass+Mono&family=Nanum+Gothic+Coding&family=Oxygen+Mono&family=Anonymous+Pro&family=Major+Mono+Display&family=Lekton&family=Andale+Mono&display=swap" rel="stylesheet">
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- HTML2Canvas for image export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      
+        
+        FONTYSYNC
+      </div>
+      <button class="theme-switch" id="theme-switch" title="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="controls-container">
+        <div class="controls">
+          <div class="font-control">
+            <div class="font-name">Heading Font</div>
+            <div class="font-display">
+              <div class="heading-font" id="heading-font-display">Hubot Sans</div>
+              <button class="shuffle-btn" id="shuffle-heading" title="Shuffle heading font">
+                <i class="fas fa-random"></i>
+              </button>
+            </div>
+            <div class="dropdown">
+              <select id="heading-font-select" class="dropdown-select">
+                <!-- Font options will be populated by JavaScript -->
+              </select>
+            </div>
+            <div class="font-weight-control">
+              <span class="weight-label">Weight</span>
+              <input type="range" class="weight-slider" id="heading-weight" min="300" max="900" step="100" value="700">
+              <span class="weight-value" id="heading-weight-value">700</span>
+            </div>
+            <div class="font-category" id="heading-categories">
+              <button class="category-btn active" data-category="all">All</button>
+              <button class="category-btn" data-category="serif">Serif</button>
+              <button class="category-btn" data-category="sans-serif">Sans</button>
+              <button class="category-btn" data-category="display">Display</button>
+              <button class="category-btn" data-category="handwriting">Script</button>
+              <button class="category-btn" data-category="monospace">Mono</button>
+            </div>
+          </div>
+          
+          <div class="font-control">
+            <div class="font-name">Body Font</div>
+            <div class="font-display">
+              <div class="body-font" id="body-font-display">Hubot Sans</div>
+              <button class="shuffle-btn" id="shuffle-body" title="Shuffle body font">
+                <i class="fas fa-random"></i>
+              </button>
+            </div>
+            <div class="dropdown">
+              <select id="body-font-select" class="dropdown-select">
+                <!-- Font options will be populated by JavaScript -->
+              </select>
+            </div>
+            <div class="font-weight-control">
+              <span class="weight-label">Weight</span>
+              <input type="range" class="weight-slider" id="body-weight" min="300" max="900" step="100" value="400">
+              <span class="weight-value" id="body-weight-value">400</span>
+            </div>
+            <div class="font-category" id="body-categories">
+              <button class="category-btn active" data-category="all">All</button>
+              <button class="category-btn" data-category="serif">Serif</button>
+              <button class="category-btn" data-category="sans-serif">Sans</button>
+              <button class="category-btn" data-category="display">Display</button>
+              <button class="category-btn" data-category="handwriting">Script</button>
+              <button class="category-btn" data-category="monospace">Mono</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="shuffle-all" id="shuffle-all">
+            <i class="fas fa-random"></i> SHUFFLE
+          </button>
+          <button class="action-btn favorite" id="add-favorite-btn">
+            <i class="fas fa-heart"></i> SAVE
+          </button>
+          <button class="action-btn export-css" id="export-css-btn">
+            <i class="fas fa-code"></i> CSS
+          </button>
+        </div>
+      </div>
+      
+      <div class="preview-container">
+        <div class="preview" id="preview">
+          <div class="preview-header">
+            <div class="preview-title">Font Preview</div>
+            <div class="preview-actions">
+              <button class="preview-action-btn" id="export-image-btn" title="Export as image">
+                <i class="fas fa-image"></i>
+              </button>
+              <button class="preview-action-btn" id="fullscreen-btn" title="Toggle fullscreen">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="preview-content">
+            <h1 class="preview-heading">Typography is what language looks like.</h1>
+            <p class="preview-body">Good typography establishes a visual hierarchy for meaning by contrasting styles and sizes. A great font combination creates harmony between elements.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="additional-sections">
+        <div class="favorites-container">
+          <div class="favorites-title">
+            <i class="fas fa-heart"></i> Saved Favorites
+          </div>
+          <div class="favorites-list" id="favorites-list">
+            <!-- Favorites will be populated by JavaScript -->
+            <div class="favorite-item empty-favorites">No favorites saved yet.</div>
+          </div>
+        </div>
+        
+        <div class="keyboard-shortcuts">
+          <div class="shortcuts-title">
+            <i class="fas fa-keyboard"></i> Keyboard Shortcuts
+          </div>
+          <div class="shortcuts-list">
+            <div class="shortcut-item">
+              <span class="shortcut">S</span> Shuffle both fonts
+            </div>
+            <div class="shortcut-item">
+              <span class="shortcut">H</span> Shuffle heading font
+            </div>
+            <div class="shortcut-item">
+              <span class="shortcut">B</span> Shuffle body font
+            </div>
+            <div class="shortcut-item">
+              <span class="shortcut">D</span> Toggle dark mode
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-text">FontySync made by Sachin</div>
+      <a href="https://www.linkedin.com/in/sachinskyte/" class="footer-link" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </footer>
+
+  <div id="status" class="status"></div>
+
+  <!-- Save Favorite Modal -->
+  <div class="modal-overlay" id="save-favorite-modal">
+    <div class="modal">
+      <div class="modal-title">Save Favorite Pair</div>
+      <input type="text" class="modal-input" id="favorite-name-input" placeholder="Enter name for this pair">
+      <div class="modal-buttons">
+        <button class="modal-btn cancel" id="cancel-save-btn">Cancel</button>
+        <button class="modal-btn save" id="confirm-save-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link to external JavaScript file -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
